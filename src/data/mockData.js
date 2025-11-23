@@ -210,7 +210,7 @@ export const testimonials = [
     rating: 5,
     date: "6 tahun lalu",
     comment: "",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjVbeT2fvE8tl9RW-h1l_aqyudIycUMXMvuLYjLrerTx1yTy6SMX=w49-h49-p-rp-mo-ba2-br100",
     event: "General"
   },
   {
@@ -219,7 +219,7 @@ export const testimonials = [
     rating: 5,
     date: "6 tahun lalu",
     comment: "",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjVbeT2fvE8tl9RW-h1l_aqyudIycUMXMvuLYjLrerTx1yTy6SMX=w49-h49-p-rp-mo-ba2-br100",
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjVLbONAadC9s1EBfW1nU2uFjjNZooj4yLA9fhIPl3pRDT6Zt9GsBA=w49-h49-p-rp-mo-ba3-br100",
     event: "General"
   }
 ];
