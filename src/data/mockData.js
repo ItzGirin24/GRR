@@ -14,140 +14,213 @@ export const services = [
     name: "Rias Pengantin",
     description: "Layanan rias pengantin profesional dengan makeup artist berpengalaman",
     icon: "Sparkles",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop"
+    image: "/Aset/asset (1).jpg"
   },
   {
     id: 2,
     name: "Dekorasi Pernikahan",
     description: "Dekorasi pernikahan elegant dan mewah sesuai tema yang Anda inginkan",
     icon: "Flower",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop"
+    image: "/Aset/asset (2).jpg"
   },
   {
     id: 3,
     name: "Paket Pernikahan",
     description: "Paket lengkap pernikahan all-in dengan harga terbaik",
     icon: "Gift",
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop"
+    image: "/Aset/asset (3).jpg"
   },
   {
     id: 4,
     name: "Dokumentasi",
     description: "Dokumentasi foto & video profesional untuk kenangan abadi",
     icon: "Camera",
-    image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop"
+    image: "/Aset/asset (4).jpg"
   }
 ];
 
 export const packages = [
   {
     id: 1,
-    name: "Paket Silver",
-    price: "15.000.000",
-    originalPrice: "18.000.000",
-    discount: "17%",
-    category: "Wedding Package",
+    name: "25 Juta",
+    price: "25000000",
+    originalPrice: "",
+    discount: "",
+    category: "Complete Wedding",
     features: [
-      "Rias Pengantin Akad & Resepsi",
-      "Busana Pengantin 2 Pasang",
-      "Dekorasi Pelaminan",
-      "Hand Bouquet",
-      "Make Up Orang Tua & Besan (4 orang)"
+      "FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)",
+      "Dekorasi max 8 x 3 m",
+      "Sett akad / pragola akad",
+      "Bunga artificial mix fresh",
+      "1 Kotak sumbang",
+      "Taman depan pelaminan",
+      "Karpet depan pelaminan",
+      "Welcome gate",
+      "2 Meja buku tamu",
+      "Dekor lorong & area buku tamu",
+      "Makeup catin",
+      "Ronce melati (fresh)",
+      "Henna putih",
+      "3x Busana catin",
+      "2x Retouch",
+      "2 Pasang makeup & busana ortu",
+      "4 Makeup & busana penjaga tamu",
+      "Photo unlimited shoot (file di flashdisk)",
+      "Album foto magnetik",
+      "Vclip",
+      "Tenda tratak siap h-3",
+      "MC & acara adat",
+      "Cucuk lampah",
+      "Hiburan (player, 2 singer, kendang, MC hiburan)",
+      "Panggung hiburan",
+      "2 Meja 2 set alat prasmanan",
+      "2 Meja bulat",
+      "300 set alat makan (piring, gelas, mangkuk sup, sendok besar, sendok kecil)",
+      "4 Gubukan",
+      "2 Blower",
+      "200 Kursi plastik + 100 cover kursi",
+      "Griya Rias Ratih GRR"
     ],
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
+    image: '/Aset/complitewedding25jt (1).jpg',
+    images: [
+          '/Aset/complitewedding25jt (1).jpg',
+          '/Aset/complitewedding25jt (2).jpg',
+          '/Aset/complitewedding25jt (3).jpg'
+    ],
     popular: false
   },
   {
     id: 2,
-    name: "Paket Gold",
-    price: "25.000.000",
-    originalPrice: "30.000.000",
-    discount: "17%",
-    category: "Wedding Package",
+    name: "30 Juta",
+    price: "30000000",
+    originalPrice: "",
+    discount: "",
+    category: "Complete Wedding",
     features: [
-      "Rias Pengantin Akad & Resepsi",
-      "Busana Pengantin 3 Pasang",
-      "Dekorasi Pelaminan Premium",
-      "Hand Bouquet & Corsage",
-      "Make Up Orang Tua & Besan (6 orang)",
-      "Dokumentasi Foto 200 shots",
-      "Souvenir 100 pcs"
+      "FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)",
+      "Dekorasi max 8 x 3 m",
+      "Set akad / pragola akad",
+      "Bunga artificial mix fresh",
+      "1 Kotak sumbang",
+      "Taman depan pelaminan",
+      "Karpet depan pelaminan",
+      "Welcome gate",
+      "2 Meja buku tamu",
+      "Dekor tata ruang (lorong, standing flower, red karpet, photo booth)",
+      "Makeup pengantin",
+      "Ronce melati (fresh)",
+      "Henna putih",
+      "3x Busana catin",
+      "2x Retouch",
+      "2 Pasang makeup & busana ortu",
+      "4 Makeup & busana penjaga tamu",
+      "Photo unlimited shoot (file di flashdisk)",
+      "Album foto magnetik",
+      "Vclip",
+      "Tenda tratak siap h-3",
+      "MC & acara adat",
+      "Cucuk lampah",
+      "Hiburan (player, 2 singer, MC hiburan)",
+      "Sexophone / kendang",
+      "2 Meja 2 set alat prasmanan",
+      "2 Meja bulat",
+      "300 set alat makan (piring, gelas, mangkuk sup, sendok besar, sendok kecil)",
+      "4 Gubukan",
+      "2 Blower",
+      "200 Kursi plastik + 100 cover kursi",
+      "EO Wedding"
     ],
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&h=600&fit=crop",
-    popular: true
+    image: "/Aset/complitewedding30jt (1).jpg",
+    images: [
+      "/Aset/complitewedding30jt (1).jpg",
+      "/Aset/complitewedding30jt (2).jpg",
+      "/Aset/complitewedding30jt (3).jpg"
+    ],
+    popular: false
+  }
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Nuning Pangesti",
+    rating: 5,
+    date: "setahun lalu",
+    comment: "Jalan ke galeri 1 masuk jauh dari jalan besar, tp masih mudah ditemukan. Tempatnya cukup terpencil tp mobil bisa masuk. Riasnya bagus, harga affordable, karena akun dipegang owner secara langsung, tnpa ada admin jadi agak slow respon, jadi harus sabar. Tp ownernya amanah, semua keperluan acara dipersiapkan dengan baik dan tepat waktu.",
+    image: null,
+    event: "General"
+  },
+  {
+    id: 2,
+    name: "Ari Baruu",
+    rating: 5,
+    date: "7 tahun lalu",
+    comment: "Mengesankan penuh suasana kekeluargaan bagai di rumah sendiri",
+    image: null,
+    event: "General"
   },
   {
     id: 3,
-    name: "Paket Platinum",
-    price: "40.000.000",
-    originalPrice: "50.000.000",
-    discount: "20%",
-    category: "Wedding Package",
-    features: [
-      "Rias Pengantin Akad & Resepsi",
-      "Busana Pengantin 4 Pasang (Custom)",
-      "Dekorasi Pelaminan Luxury",
-      "Dekorasi Area Photo Booth",
-      "Hand Bouquet Premium & Corsage",
-      "Make Up Orang Tua, Besan & Keluarga (10 orang)",
-      "Dokumentasi Foto & Video Full HD",
-      "Souvenir 150 pcs",
-      "MC Profesional",
-      "Live Music"
-    ],
-    image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&h=600&fit=crop",
-    popular: false
+    name: "NUR BUDHI",
+    rating: 5,
+    date: "7 tahun lalu",
+    comment: "Lumayan bagus",
+    image: null,
+    event: "General"
   },
   {
     id: 4,
-    name: "Rias Wisuda",
-    price: "500.000",
-    originalPrice: "750.000",
-    discount: "33%",
-    category: "Special Makeup",
-    features: [
-      "Make Up Wisuda",
-      "Hair Do",
-      "Free Touch Up",
-      "Termasuk Bulu Mata"
-    ],
-    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=600&fit=crop",
-    popular: false
+    name: "FATCHU ROHMAN",
+    rating: 5,
+    date: "Diedit 6 tahun lalu",
+    comment: "Recommended banget",
+    image: null,
+    event: "General"
   },
   {
     id: 5,
-    name: "Rias Lamaran",
-    price: "3.500.000",
-    originalPrice: "4.500.000",
-    discount: "22%",
-    category: "Engagement",
-    features: [
-      "Rias Pengantin Lamaran",
-      "Busana 1 Pasang",
-      "Hand Bouquet",
-      "Dekorasi Meja Lamaran",
-      "Make Up Orang Tua (2 orang)"
-    ],
-    image: "https://images.unsplash.com/photo-1525772424091-e7b8b4c8e5f2?w=800&h=600&fit=crop",
-    popular: false
+    name: "Fathin Azhari Wibowo",
+    rating: 5,
+    date: "7 tahun lalu",
+    comment: "Good",
+    image: null,
+    event: "General"
   },
   {
     id: 6,
-    name: "Dekorasi Premium",
-    price: "15.000.000",
-    originalPrice: "18.000.000",
-    discount: "17%",
-    category: "Decoration Only",
-    features: [
-      "Dekorasi Pelaminan Premium",
-      "Dekorasi Aisle/Jalan Pengantin",
-      "Photo Booth Area",
-      "Dekorasi Meja Tamu",
-      "Lighting Premium",
-      "Fresh Flowers"
-    ],
-    image: "https://images.unsplash.com/photo-1519225421980-c40e54a0b5b2?w=800&h=600&fit=crop",
-    popular: false
+    name: "sepi purwo",
+    rating: 5,
+    date: "setahun lalu",
+    comment: "",
+    image: null,
+    event: "General"
+  },
+  {
+    id: 7,
+    name: "BIMO Tips N Trik",
+    rating: 5,
+    date: "5 tahun lalu",
+    comment: "",
+    image: null,
+    event: "General"
+  },
+  {
+    id: 8,
+    name: "CA “CA” IRAWAN",
+    rating: 5,
+    date: "6 tahun lalu",
+    comment: "",
+    image: null,
+    event: "General"
+  },
+  {
+    id: 9,
+    name: "Dmaz Dhesea",
+    rating: 5,
+    date: "6 tahun lalu",
+    comment: "",
+    image: null,
+    event: "General"
   }
 ];
 
@@ -156,114 +229,57 @@ export const gallery = [
     id: 1,
     title: "Wedding Ayu & Budi",
     category: "Wedding",
-    image: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Pernikahan elegant dengan tema klasik modern"
   },
   {
     id: 2,
     title: "Dekorasi Pelaminan Luxury",
     category: "Decoration",
-    image: "https://images.unsplash.com/photo-1519167758581-83d8b92ef7f2?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Pelaminan mewah dengan fresh flowers"
   },
   {
     id: 3,
     title: "Rias Pengantin Jawa",
     category: "GRR Makeup",
-    image: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Makeup pengantin adat Jawa Tengah"
   },
   {
     id: 4,
     title: "Wedding Siti & Andi",
     category: "Wedding",
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Intimate wedding dengan dekorasi soft pink"
   },
   {
     id: 5,
     title: "Dekorasi Garden Party",
     category: "Decoration",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Outdoor wedding decoration"
   },
   {
     id: 6,
     title: "Rias Pengantin Modern",
     category: "GRR Makeup",
-    image: "https://images.unsplash.com/photo-1522673607211-8e2e4a06e9e2?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Modern GRR makeup dengan hijab"
   },
   {
     id: 7,
     title: "Wedding Rina & Doni",
     category: "Wedding",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Grand wedding dengan dekorasi gold"
   },
   {
     id: 8,
     title: "Dekorasi Rustic",
     category: "Decoration",
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop",
+    image: "/Aset/complitewedding30jt (1).jpg",
     description: "Rustic theme wedding decoration"
-  }
-];
-
-export const testimonials = [
-  {
-    id: 1,
-    name: "Dewi Sartika",
-    rating: 5,
-    date: "2 minggu yang lalu",
-    comment: "Pelayanan sangat memuaskan! Tim Griya Rias Ratih sangat profesional dan detail. Hasil riasan dan dekorasi pernikahan saya melebihi ekspektasi. Highly recommended!",
-    image: "https://i.pravatar.cc/150?img=1",
-    event: "Wedding"
-  },
-  {
-    id: 2,
-    name: "Ahmad Fauzi",
-    rating: 5,
-    date: "1 bulan yang lalu",
-    comment: "Terima kasih Griya Rias Ratih! Pernikahan kami berjalan sempurna berkat bantuan tim yang sangat kompeten. Dekorasinya benar-benar wow dan makeup istri saya cantik sekali!",
-    image: "https://i.pravatar.cc/150?img=12",
-    event: "Wedding"
-  },
-  {
-    id: 3,
-    name: "Siti Nurhaliza",
-    rating: 5,
-    date: "3 minggu yang lalu",
-    comment: "MUA-nya sangat sabar dan profesional. Makeup saya tahan seharian penuh dan tetap flawless. Dekorasi pelaminannya juga sangat indah, sesuai dengan tema yang saya inginkan. Worth it!",
-    image: "https://i.pravatar.cc/150?img=5",
-    event: "Wedding"
-  },
-  {
-    id: 4,
-    name: "Budi Santoso",
-    rating: 5,
-    date: "2 bulan yang lalu",
-    comment: "Sangat puas dengan pelayanan Griya Rias Ratih! Dari konsultasi hingga hari H semua berjalan lancar. Tim sangat responsif dan membantu. Harga juga reasonable untuk kualitas yang diberikan.",
-    image: "https://i.pravatar.cc/150?img=8",
-    event: "Wedding"
-  },
-  {
-    id: 5,
-    name: "Ratna Dewi",
-    rating: 5,
-    date: "1 bulan yang lalu",
-    comment: "Best decision ever memilih Griya Rias Ratih untuk pernikahan kami! Semua detail diperhatikan dengan baik. Makeup-nya natural tapi tetap glamour, dekorasinya elegant banget. Terima kasih banyak!",
-    image: "https://i.pravatar.cc/150?img=9",
-    event: "Wedding"
-  },
-  {
-    id: 6,
-    name: "Indah Permata",
-    rating: 5,
-    date: "3 minggu yang lalu",
-    comment: "Makeup wisuda saya hasilnya bagus banget! Tahan lama dan fotonya bagus-bagus. Bu Sri dan tim sangat ramah. Pasti balik lagi kalau ada acara. Recommended!",
-    image: "https://i.pravatar.cc/150?img=10",
-    event: "Wisuda"
   }
 ];
 

@@ -1,199 +1,447 @@
 import React, { useState } from 'react';
-import { Card, CardContent } from '../components/ui/card';
-import { Badge } from '../components/ui/badge';
-import { Button } from '../components/ui/button';
-import { packages } from '../data/mockData';
-import { Sparkles, Check, ArrowRight } from 'lucide-react';
+
+const tabData = [
+  {
+    id: 'minimalis-wedding',
+    label: 'Minimalis Wedding',
+    packages: [
+      {
+        id: '6j-1',
+        name: '6 Juta',
+        features: [
+          'Dekorasi 6 x 3 m',
+          'Set akad',
+          'Bunga artificial',
+          'Mini garden & karpet depan pelaminan',
+          '1 Kotak sumbang',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Sepasang busana akad',
+          '2 Pasang makeup & busana ortu',
+          '2 Roll foto',
+          'Album foto magnetik'
+        ],
+        image: '/aset/WEDDING PACKAGE (1).jpg'
+      },
+      {
+        id: '8j-1',
+        name: '8 Juta',
+        features: [
+          'Dekorasi 6 x 3 m',
+          'Set akad',
+          'Bunga artificial mix',
+          'Mini garden & karpet depan pelaminan',
+          '1 Kotak sumbang',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '2x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '2 Makeup & busana penjaga buku tamu',
+          '2.5 roll foto',
+          'Album foto magnetik'
+        ],
+        image: '/aset/WEDDING PACKAGE (2).jpg'
+      },
+      {
+        id: '10j-1',
+        name: '10 Juta',
+        features: [
+          'Set akad',
+          'Bunga artificial mix fresh',
+          'Mini garden & karpet depan pelaminan',
+          '1 Kotak sumbang',
+          'Welcome gate',
+          '1 Meja buku tamu',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '2x Busana catin',
+          '2 Pasang makeup & busana ortu',
+          '4 Makeup & busana penjaga buku tamu',
+          'Foto cetak 4R x 80',
+          'Unlimited shoot, all file at flashdisk',
+          '2.5 roll foto',
+          'Album foto magnetik'
+        ],
+        image: '/aset/WEDDING PACKAGE (3).jpg'
+      }
+    ]
+  },
+  {
+    id: 'Medium-wedding',
+    label: 'Medium Wedding',
+    packages: [
+      {
+        id: '12j-2',
+        name: '12 Juta',
+        features: [
+          'Dekorasi 6 x 3 m',
+          'Setting meja kursi akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Mini garden & karpet depan pelaminan',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          '3x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '2 Makeup & busana penjaga buku tamu',
+          '2 Pengipas',
+          '2 Foto roll & album foto',
+          'Cetak frame 12RS',
+          'Tenda tratak siap H-3',
+          'MC & acara adat',
+          '1 Blower',
+          'FREE Soft lens, Nail fake, Hand Bouquet',
+        ],
+        image: '/Aset/MediumWeddin (1)12juta.jpg' 
+      },
+      {
+        id: '14j-2',
+        name: '14 Juta',
+        features: [
+          'Dekorasi 8 x 3 m',
+          'Setting meja kursi akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Mini garden & karpet depan pelaminan',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          '3x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '2 Pengipas anak',
+          '4 Makeup & busana penjaga buku tamu',
+          '4 Busana pager bagus',
+          '2.5 Foto roll',
+          'Album foto',
+          'Cetak frame 12RS',
+          'Tenda tratak siap H-3',
+          'MC & acara adat',
+          '1 Blower',
+          'GRIYA RIAS RATIH',
+          'FREE Soft lens, Nail fake, Hand Bouquet',
+        ],
+        image: '/Aset/MediumWeddin (2)14juta.jpg' 
+      },
+      {
+        id: '16j-2',
+        name: '16 Juta',
+        features: [
+          'Dekorasi max 8x3 m',
+          'Setting meja kursi akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Welcome gate',
+          '1 Meja buku tamu',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '3x Busana catin',
+          '2 Pasang makeup & busana ortu',
+          '4 Makeup & busana penjaga buku tamu',
+          '2 Pengipas',
+          '2 Pager bagus',
+          'Foto cetak 4R x 80, unlimited shoot, all file (flashdisk)',
+          'Album foto magnetik',
+          'Cetak frame 12RS',
+          'Vclip 3/5 menit',
+          'Tenda tratak siap H-3',
+          'MC & acara adat',
+          'Cucuk lampah',
+          '2 Blower',
+          'FREE Soft lens, Nail fake, Hand Bouquet',
+        ],
+        image: '/Aset/MediumWeddin (3)16juta.jpg' 
+
+      },
+      {
+        id: '20j-2',
+        name: '20 Juta',
+        features: [
+          'Dekorasi max 8x3 m',
+          'Setting meja kursi akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Mini garden & karpet depan pelaminan',
+          'Welcome gate',
+          '1 Meja buku tamu',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '3x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '4 Makeup & busana penjaga buku tamu',
+          '2 Pengipas anak',
+          '4 Busana pager bagus',
+          '4 Pasang among tamu',
+          'Foto cetak 4R x 100, unlimited shoot, all file (flashdisk)',
+          'Album foto magnetik',
+          'Vclip 3/5 menit',
+          'Cetak frame 12RS',
+          'Tenda tratak siap H-3',
+          'MC & acara adat',
+          'Cucuk lampah',
+          'Hiburan (player, 2 singer, kendang, MC hiburan, panggung hiburan)',
+          '2 Blower',
+        ],
+           image: '/Aset/MediumWeddin (4)20juta.jpg' 
+
+      },
+    ]
+  },
+  {
+    id: 'complete-wedding',
+    label: 'Complete Wedding',
+    packages: [
+      {
+        id: '25j-3',
+        name: '25 Juta',
+        features: [
+          'FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)',
+          'Dekorasi max 8 x 3 m',
+          'Sett akad / pragola akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Taman depan pelaminan',
+          'Karpet depan pelaminan',
+          'Welcome gate',
+          '2 Meja buku tamu',
+          'Dekor lorong & area buku tamu',
+          'Makeup catin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '3x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '4 Makeup & busana penjaga tamu',
+          'Photo unlimited shoot (file di flashdisk)',
+          'Album foto magnetik',
+          'Vclip',
+          'Tenda tratak siap h-3',
+          'MC & acara adat',
+          'Cucuk lampah',
+          'Hiburan (player, 2 singer, kendang, MC hiburan)',
+          'Panggung hiburan',
+          '2 Meja 2 set alat prasmanan',
+          '2 Meja bulat',
+          '300 set alat makan (piring, gelas, mangkuk sup, sendok besar, sendok kecil)',
+          '4 Gubukan',
+          '2 Blower',
+          '200 Kursi plastik + 100 cover kursi',
+          'Griya Rias Ratih GRR',
+        ],
+        images: [
+          '/Aset/complitewedding25jt (1).jpg',
+          '/Aset/complitewedding25jt (2).jpg',
+          '/Aset/complitewedding25jt (3).jpg'
+        ]
+      },
+      {
+        id: '30j-3',
+        name: '30 Juta',
+        features: [
+          'FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)',
+          'Dekorasi max 8 x 3 m',
+          'Set akad / pragola akad',
+          'Bunga artificial mix fresh',
+          '1 Kotak sumbang',
+          'Taman depan pelaminan',
+          'Karpet depan pelaminan',
+          'Welcome gate',
+          '2 Meja buku tamu',
+          'Dekor tata ruang (lorong, standing flower, red karpet, photo booth)',
+          'Makeup pengantin',
+          'Ronce melati (fresh)',
+          'Henna putih',
+          '3x Busana catin',
+          '2x Retouch',
+          '2 Pasang makeup & busana ortu',
+          '4 Makeup & busana penjaga tamu',
+          'Photo unlimited shoot (file di flashdisk)',
+          'Album foto magnetik',
+          'Vclip',
+          'Tenda tratak siap h-3',
+          'MC & acara adat',
+          'Cucuk lampah',
+          'Hiburan (player, 2 singer, MC hiburan)',
+          'Sexophone / kendang',
+          '2 Meja 2 set alat prasmanan',
+          '2 Meja bulat',
+          '300 set alat makan (piring, gelas, mangkuk sup, sendok besar, sendok kecil)',
+          '4 Gubukan',
+          '2 Blower',
+          '200 Kursi plastik + 100 cover kursi',
+          'EO Wedding',
+        ],
+        images: [
+          '/Aset/complitewedding30jt (1).jpg',
+          '/Aset/complitewedding30jt (2).jpg',
+          '/Aset/complitewedding30jt (3).jpg'
+        ]
+      },
+    ]
+  },
+  {
+    id: 'paket-dekorasi',
+    label: 'PAKET DEKORASI',
+    packages: [
+      {
+        id: '3_5j-4',
+        name: '3,5 - 5 Juta',
+        features: [
+          'GRIYA RIAS RATIH',
+          'DEKORASI 6 M LIGHTING',
+          'SET AKAD',
+          'MINI GARDEN',
+          'WELCOME GATE',
+          '1 KOTAK SUMBANG',
+          'MEJA BUKU TAMU',
+          'STAND FOTO PREWEDD',
+          'HAND BOUQUET',
+          'UMBUL - UMBUL',
+        ],
+        image: '/Aset/Dekorasi-3_5-5juta.jpg' 
+      },
+      {
+        id: '7j-4',
+        name: '7 Juta',
+        features: [
+          'SET AKAD',
+          'DEKORASI 8 M LIGHTING',
+          'MINI GARDEN',
+          'WELCOME GATE MIRROR',
+          '1 KOTAK SUMBANG',
+          '2 MEJA BUKU TAMU',
+          'MINI LORONG',
+          'STAND FLOWER',
+          'KARPET JALAN',
+          'SPOT PHOTO BOOTH',
+          'STAND PHOTO PREWEDD',
+          'HAND BOUQUET',
+          'UMBUL - UMBUL',
+        ],
+        image: '/Aset/Dekorasi-7juta.jpg' 
+      },
+      {
+        id: '9j-4',
+        name: '9 Juta',
+        features: [
+          'DEKORASI 8 M LIGHTING',
+          'SET AKAD AKRILIK',
+          'MINI GARDEN',
+        ],
+        image: '/Aset/Dekorasi-9juta.jpg' 
+      },
+      {
+        id: '14j-4',
+        name: '14 Juta',
+        features: [
+          'WELCOME GATE MIRROR',
+          '1 KOTAK SUMBANG',
+          '2 MEJA BUKU TAMU',
+          'MINI LORONG',
+          'STAND FLOWER',
+          'KARPET JALAN',
+          'SPOT PHOTO BOOTH',
+          'STAND PHOTO PREWEDD',
+          'HAND BOUQUET',
+          'LIGHTING MOVING',
+          'AC PELAMINAN',
+          'UMBUL - UMBUL',
+        ],
+        image: '/Aset/Dekorasi-14juta.jpg' 
+      },
+      {
+        id: 'ff-4',
+        name: 'Full Fresh Flowers',
+        features: [
+          'DEKORASI 8 M LIGHTING',
+          'FULL FRESH FLOWERS',
+          'SET AKAD AKRILIK',
+          'MINI GARDEN',
+          'WELCOME GATE MIRROR',
+          '1 KOTAK SUMBANG',
+          '2 MEJA BUKU TAMU',
+          'MINI LORONG',
+          'STAND FLOWER',
+          'KARPET JALAN',
+          'SPOT PHOTO BOOTH',
+          'STAND PHOTO PREWEDD',
+          'HAND BOUQUET',
+          'LIGHTING MOVING',
+          'AC PELAMINAN',
+          'DRY ICE / EFEK ASAP',
+          'UMBUL - UMBUL',
+        ],
+        image: '/Aset/Dekorasi-full-fresh.jpg' 
+      },
+    ]
+  },
+];
 
 const Packages = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const categories = ['All', 'Wedding Package', 'Special Makeup', 'Engagement', 'Decoration Only'];
-
-  const filteredPackages =
-    selectedCategory === 'All'
-      ? packages
-      : packages.filter((pkg) => pkg.category === selectedCategory);
+  const [activeTab, setActiveTab] = React.useState(tabData[0].id);
 
   return (
-    <div className="min-h-screen pt-24 pb-20">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-amber-50 to-pink-50 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-amber-100 text-amber-700 border-amber-200 mb-4">
-            Paket & Harga
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Paket Pernikahan Terbaik
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Pilih paket yang sesuai dengan kebutuhan dan budget Anda. Semua paket dapat disesuaikan dengan keinginan Anda.
-          </p>
-        </div>
-      </section>
+    <section className="container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
+      <h1 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">
+        Paket & Harga Griya Rias Ratih
+      </h1>
+      <div className="mb-6 flex flex-wrap justify-center border-b border-gray-300">
+        {tabData.map(({ id, label }) => (
+          <button
+            key={id}
+            onClick={() => setActiveTab(id)}
+            className={`px-4 py-2 m-1 font-semibold rounded-t-lg transition-colors duration-300 ${
+              activeTab === id
+                ? 'bg-yellow-400 text-yellow-900 border-t border-l border-r border-yellow-400'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {tabData.map(({ id, packages }) => {
+          if (activeTab !== id || !packages) return null;
 
-      {/* Category Filter */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                className={selectedCategory === category ? 'bg-amber-600 hover:bg-amber-700' : 'border-amber-600 text-amber-600 hover:bg-amber-50'}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Packages Grid */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPackages.map((pkg) => (
-              <Card
-                key={pkg.id}
-                className={`group hover:shadow-2xl transition-all duration-300 border-2 overflow-hidden ${
-                  pkg.popular ? 'border-amber-500 relative transform lg:scale-105' : 'border-gray-200'
-                }`}
-              >
-                {pkg.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-amber-500 text-white text-center py-2 text-sm font-semibold z-10">
-                    PALING POPULER
-                  </div>
-                )}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={pkg.image}
-                    alt={pkg.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  {pkg.discount && (
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-red-500 text-white border-0 text-lg px-3 py-1">
-                        Hemat {pkg.discount}
-                      </Badge>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
-
-                <CardContent className={`p-6 ${pkg.popular ? 'pt-14' : 'pt-6'}`}>
-                  <div className="mb-4">
-                    <Badge variant="outline" className="text-amber-600 border-amber-600 mb-3">
-                      {pkg.category}
-                    </Badge>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                  </div>
-
-                  <div className="mb-6 pb-6 border-b">
-                    {pkg.originalPrice && (
-                      <p className="text-gray-400 line-through text-sm mb-1">
-                        Rp {parseInt(pkg.originalPrice).toLocaleString('id-ID')}
-                      </p>
-                    )}
-                    <p className="text-3xl font-bold text-amber-600">
-                      Rp {parseInt(pkg.price).toLocaleString('id-ID')}
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 mb-6">
-                    <h4 className="font-semibold text-gray-900 flex items-center">
-                      <Sparkles className="h-5 w-5 text-amber-500 mr-2" />
-                      Yang Anda Dapatkan:
-                    </h4>
-                    <ul className="space-y-2">
-                      {pkg.features.map((feature, index) => (
-                        <li key={index} className="flex items-start text-sm text-gray-600">
-                          <Check className="h-4 w-4 text-amber-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white">
-                    Pilih Paket Ini
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Custom Package */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-amber-50">
-        <div className="container mx-auto px-4">
-          <Card className="border-0 shadow-xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-64 lg:h-auto">
-                <img
-                  src="https://images.unsplash.com/photo-1522673607211-8e2e4a06e9e2?w=800&h=600&fit=crop"
-                  alt="Custom Package"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
-              </div>
-              <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                <Badge className="bg-amber-100 text-amber-700 border-amber-200 mb-4 w-fit">
-                  Paket Custom
-                </Badge>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  Butuh Paket Khusus?
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Tidak menemukan paket yang sesuai? Tenang! Kami dapat membuat paket custom sesuai dengan kebutuhan dan budget Anda. Konsultasikan kebutuhan acara Anda dengan tim kami.
-                </p>
-                <div className="space-y-3 mb-6">
-                  {[
-                    'Fleksibel disesuaikan dengan budget',
-                    'Pilih layanan yang Anda butuhkan',
-                    'Konsultasi gratis dengan tim profesional',
-                    'Harga transparan tanpa biaya tersembunyi'
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start">
-                      <Check className="h-5 w-5 text-amber-600 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">{item}</span>
-                    </div>
+          return packages.map(({ id: pkgId, name, features, image, images }) => (
+            <div
+              key={pkgId}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              {images ? (
+                <div className="grid grid-cols-3 gap-1">
+                  {images.map((imgSrc, index) => (
+                    <img
+                      key={index}
+                      src={imgSrc}
+                      alt={`${name} - image ${index + 1}`}
+                      className="w-full h-48 object-cover"
+                    />
                   ))}
                 </div>
-                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white">
-                  Konsultasi Paket Custom
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </CardContent>
+              ) : (
+                <img src={image} alt={name} className="w-full h-48 object-cover" />
+              )}
+              <div className="p-4">
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">{name}</h2>
+                <ul className="text-gray-700 text-sm list-disc list-inside space-y-1">
+                  {features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-amber-600 to-amber-700">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Sudah Menemukan Paket yang Tepat?
-          </h2>
-          <p className="text-amber-50 mb-8 max-w-2xl mx-auto">
-            Hubungi kami sekarang juga untuk booking dan dapatkan diskon spesial!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-amber-600 hover:bg-gray-100">
-              Hubungi via WhatsApp
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              Konsultasi Gratis
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
+          ));
+        })}
+      </div>
+    </section>
   );
 };
 
