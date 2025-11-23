@@ -20,9 +20,9 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Beranda', path: '/' },
     { name: 'Layanan', path: '/services' },
-    { name: 'Paket', path: '/packages' },
-    { name: 'Galeri', path: '/gallery' },
-    { name: 'Testimoni', path: '/testimonials' },
+    { name: 'Paket', path: '/paket' },
+    { name: 'Galeri', path: '/galeri' },
+    { name: 'Testimoni', path: '/testimoni' },
     { name: 'Kontak', path: '/contact' }
   ];
 

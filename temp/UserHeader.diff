@@ -1,0 +1,14 @@
+import { useAuth } from '../context/AuthContext';
+import { Button } from './ui/button';
+import ProfileDropdown from './ProfileDropdown';
+import { ShoppingCart, MessageSquare } from 'lucide-react';
+
+import { Link, useNavigate } from 'react-router-dom';
+=======
+import React from 'react';
+import { useAuth } from '../context/AuthContext';
+import { Button } from './ui/button';
+import ProfileDropdown from './ProfileDropdown';
+import { ShoppingCart, MessageSquare, User } from 'lucide-react';
+
+import { Link, useNavigate } from 'react-router-dom';

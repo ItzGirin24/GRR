@@ -2,12 +2,15 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Button } from './ui/button';
 import ProfileDropdown from './ProfileDropdown';
-import { ShoppingCart, MessageSquare } from 'lucide-react';
+import { ShoppingCart, MessageSquare, User } from 'lucide-react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
 const UserHeader = () => {
   const { currentUser } = useAuth();
+
+  console.log("Current User:", currentUser); // Added debugging log
+
   const navigate = useNavigate();
 
   if (!currentUser) {
@@ -26,16 +29,9 @@ const UserHeader = () => {
   const cartItemCount = 0; // TODO: Replace with actual cart count
 
   return (
-    <div className="flex items-center space-x-4">
-      {currentUser.photoURL && (
-        <img
-          src={currentUser.photoURL}
-          alt={currentUser.displayName || currentUser.email}
-          className="w-8 h-8 rounded-full object-cover"
-        />
-      )}
+    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
       <div className="text-right">
-        <p className="font-semibold">{currentUser.displayName || currentUser.email || 'User'}</p>
+        <p className="font-semibold truncate max-w-xs">{currentUser.displayName || currentUser.email || 'User'}</p>
       </div>
       <div className="flex items-center space-x-2">
         <Button

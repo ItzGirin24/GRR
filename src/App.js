@@ -12,6 +12,9 @@ import Admin from './pages/Admin';
 import Profile from './pages/Profile';
 import Cart from './pages/Cart';
 import Messages from './pages/Messages';
+import Paket from './pages/Paket';
+import Galeri from './pages/Galeri';
+import Testimoni from './pages/Testimoni';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -24,8 +27,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/packages" element={<Packages />} />
+            <Route path="/paket" element={<Paket />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/galeri" element={<Galeri />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/testimoni" element={<Testimoni />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/profile" element={<Profile />} />
