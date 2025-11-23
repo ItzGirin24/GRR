@@ -147,7 +147,7 @@ export const testimonials = [
     rating: 5,
     date: "setahun lalu",
     comment: "Jalan ke galeri 1 masuk jauh dari jalan besar, tp masih mudah ditemukan. Tempatnya cukup terpencil tp mobil bisa masuk. Riasnya bagus, harga affordable, karena akun dipegang owner secara langsung, tnpa ada admin jadi agak slow respon, jadi harus sabar. Tp ownernya amanah, semua keperluan acara dipersiapkan dengan baik dan tepat waktu.",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjXdgzVE_LVTM-5WpwVXvbwnw-1PYteTX2a2-tMzwqQR9PCZ7t9N=w49-h49-p-rp-mo-ba3-br100",
     event: "General"
   },
   {
@@ -156,7 +156,7 @@ export const testimonials = [
     rating: 5,
     date: "7 tahun lalu",
     comment: "Mengesankan penuh suasana kekeluargaan bagai di rumah sendiri",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a/ACg8ocIEyIVY1e3OZEa70sYgnWNpUT3juOXi4sTDtEu24MPX2E-dmg=w49-h49-p-rp-mo-br100",
     event: "General"
   },
   {
@@ -165,7 +165,7 @@ export const testimonials = [
     rating: 5,
     date: "7 tahun lalu",
     comment: "Lumayan bagus",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a/ACg8ocIui1tx0yzZKbVDi3zo5j3p86EMOjNsHrSakO9hFnZ0GFWzeg=w49-h49-p-rp-mo-ba3-br100",
     event: "General"
   },
   {
@@ -174,7 +174,7 @@ export const testimonials = [
     rating: 5,
     date: "Diedit 6 tahun lalu",
     comment: "Recommended banget",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjXc7SNcbpKVbc5531tnL5XKFtKqj4D6Xrr3DS5PEOQ-xkASCF5C=w49-h49-p-rp-mo-ba3-br100",
     event: "General"
   },
   {
@@ -183,7 +183,7 @@ export const testimonials = [
     rating: 5,
     date: "7 tahun lalu",
     comment: "Good",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjVT4LrmLxSl7YdB6LEJjaNBGQINSqmBqtWm2KuoXrebSULmXNIAqg=w49-h49-p-rp-mo-ba4-br100",
     event: "General"
   },
   {
@@ -192,7 +192,7 @@ export const testimonials = [
     rating: 5,
     date: "setahun lalu",
     comment: "",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a/ACg8ocKAgrnzAP86duIn_Dz_YSkLNLLkAeuv09GIodCo53SmZzy-WA=w49-h49-p-rp-mo-br100",
     event: "General"
   },
   {
@@ -201,7 +201,7 @@ export const testimonials = [
     rating: 5,
     date: "5 tahun lalu",
     comment: "",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjWEVMMRWhpL2b-RcE49PWIOHjPIC5aem31wvsGe9p0DSjC-kHjD=w49-h49-p-rp-mo-ba3-br100",
     event: "General"
   },
   {
@@ -219,7 +219,7 @@ export const testimonials = [
     rating: 5,
     date: "6 tahun lalu",
     comment: "",
-    image: null,
+    image: "https://lh3.googleusercontent.com/a-/ALV-UjVbeT2fvE8tl9RW-h1l_aqyudIycUMXMvuLYjLrerTx1yTy6SMX=w49-h49-p-rp-mo-ba2-br100",
     event: "General"
   }
 ];
