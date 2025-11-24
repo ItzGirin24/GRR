@@ -21,7 +21,7 @@ const tabData = [
           '2 Roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (1).jpg'
+        image: '/Aset/WEDDING PACKAGE (1).jpg'
       },
       {
         id: '8j-1',
@@ -42,7 +42,7 @@ const tabData = [
           '2.5 roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (2).jpg'
+        image: '/Aset/WEDDING PACKAGE (2).jpg'
       },
       {
         id: '10j-1',
@@ -65,7 +65,7 @@ const tabData = [
           '2.5 roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (3).jpg'
+        image: '/Aset/WEDDING PACKAGE (3).jpg'
       }
     ]
   },
