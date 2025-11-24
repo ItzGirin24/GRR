@@ -21,7 +21,7 @@ const tabData = [
           '2 Roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (1).jpg'
+        image: '/Aset/WEDDING PACKAGE (1).jpg'
       },
       {
         id: '8j-1',
@@ -42,7 +42,7 @@ const tabData = [
           '2.5 roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (2).jpg'
+        image: '/Aset/WEDDING PACKAGE (2).jpg'
       },
       {
         id: '10j-1',
@@ -65,7 +65,7 @@ const tabData = [
           '2.5 roll foto',
           'Album foto magnetik'
         ],
-        image: '/aset/WEDDING PACKAGE (3).jpg'
+        image: '/Aset/WEDDING PACKAGE (3).jpg'
       }
     ]
   },
@@ -387,9 +387,9 @@ const Packages = () => {
   const [activeTab, setActiveTab] = React.useState(tabData[0].id);
 
   return (
-    <section className="container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
+    <section className="pt-24 container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">
-        Paket & Harga Griya Rias Ratih
+        Paket & Harga 
       </h1>
       <div className="mb-6 flex flex-wrap justify-center border-b border-gray-300">
         {tabData.map(({ id, label }) => (
