@@ -1,13 +1,15 @@
-  import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Instagram, ChevronDown, Home as HomeIcon, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
 import UserHeader from './UserHeader';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,12 +29,12 @@ const Navbar = () => {
   ];
 
   const iconMap = {
-    'Beranda': <HomeIcon className="w-5 h-5 mb-1" />,
-    'Layanan': <Phone className="w-5 h-5 mb-1" />,
-    'Paket': <ChevronDown className="w-5 h-5 mb-1" />,
-    'Galeri': <Instagram className="w-5 h-5 mb-1" />,
-    'Testimoni': <MessageSquare className="w-5 h-5 mb-1" />,
-    'Kontak': <Phone className="w-5 h-5 mb-1" />
+    Beranda: <HomeIcon className="w-5 h-5 mb-1" />,
+    Layanan: <Phone className="w-5 h-5 mb-1" />,
+    Paket: <ChevronDown className="w-5 h-5 mb-1" />,
+    Galeri: <Instagram className="w-5 h-5 mb-1" />,
+    Testimoni: <MessageSquare className="w-5 h-5 mb-1" />,
+    Kontak: <Phone className="w-5 h-5 mb-1" />
   };
 
   return (
@@ -71,17 +73,32 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Desktop CTA Buttons */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <UserHeader />
-            </div>
-          </div>
-
-          {/* Mobile Custom Header */}
-          <div className="lg:hidden w-full pt-2 border-t border-gray-200">
-            <div className="flex items-center justify-between px-2">
-              {/* User icons */}
-              <UserHeader />
+            {/* Right Side */}
+            <div className="flex items-center space-x-4">
+              {/* Desktop - UserHeader or Masuk */}
+              <div className="hidden lg:flex items-center">
+                {currentUser ? (
+                  <UserHeader />
+                ) : (
+                  <Link
+                    to="/login"
+                    className="text-sm font-medium text-amber-600 hover:underline"
+                  >
+                    Masuk
+                  </Link>
+                )}
+              </div>
+              {/* Mobile - Masuk only if logged out */}
+              {!currentUser && (
+                <div className="lg:hidden">
+                  <Link
+                    to="/login"
+                    className="text-sm font-medium text-amber-600 hover:underline"
+                  >
+                    Masuk
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -100,13 +117,13 @@ const Navbar = () => {
                 }`}
                 aria-label={link.name}
               >
-              {iconMap[link.name]}
-              <span>{link.name}</span>
-            </Link>
-          ))}
+                {iconMap[link.name]}
+                <span>{link.name}</span>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     </>
   );
 };

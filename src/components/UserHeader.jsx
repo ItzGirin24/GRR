@@ -13,11 +13,11 @@ const UserHeader = () => {
 
   const navigate = useNavigate();
 
-  if (!currentUser) {
+if (!currentUser) {
     return (
       <div className="flex items-center space-x-2">
         <Link
-          to="/admin"
+          to="/login"
           className="text-sm font-medium text-amber-600 hover:underline"
         >
           Masuk

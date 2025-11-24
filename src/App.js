@@ -8,19 +8,22 @@ import Packages from './pages/Packages';
 import Gallery from './pages/Gallery';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
-import Admin from './pages/Admin';
+import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Cart from './pages/Cart';
 import Messages from './pages/Messages';
 import Paket from './pages/Paket';
 import Galeri from './pages/Galeri';
 import Testimoni from './pages/Testimoni';
+import Admin from './pages/Admin';
 import { AuthProvider } from './context/AuthContext';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen bg-white">
           <Navbar />
           <Routes>
@@ -37,6 +40,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/messages" element={<Messages />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
           <Footer />
         </div>
