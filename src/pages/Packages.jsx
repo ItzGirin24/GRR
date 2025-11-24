@@ -387,9 +387,9 @@ const Packages = () => {
   const [activeTab, setActiveTab] = React.useState(tabData[0].id);
 
   return (
-    <section className="container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
+    <section className="pt-24 container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">
-        Paket & Harga Griya Rias Ratih
+        Paket & Harga 
       </h1>
       <div className="mb-6 flex flex-wrap justify-center border-b border-gray-300">
         {tabData.map(({ id, label }) => (
