@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Instagram, ChevronDown, Home as HomeIcon, MessageSquare } from 'lucide-react';
-import { Button } from './ui/button';
-import UserHeader from './UserHeader';
-import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Phone,
+  Instagram,
+  ChevronDown,
+  Home as HomeIcon,
+  MessageSquare,
+} from "lucide-react";
+import { Button } from "./ui/button";
+import UserHeader from "./UserHeader";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,17 +23,17 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Beranda', path: '/' },
-    { name: 'Layanan', path: '/services' },
-    { name: 'Paket', path: '/packages' },
-    { name: 'Galeri', path: '/gallery' },
-    { name: 'Testimoni', path: '/testimonials' },
-    { name: 'Kontak', path: '/contact' }
+    { name: "Beranda", path: "/" },
+    { name: "Layanan", path: "/services" },
+    { name: "Paket", path: "/packages" },
+    { name: "Galeri", path: "/gallery" },
+    { name: "Testimoni", path: "/testimonials" },
+    { name: "Kontak", path: "/contact" },
   ];
 
   const iconMap = {
@@ -34,38 +42,40 @@ const Navbar = () => {
     Paket: <ChevronDown className="w-5 h-5 mb-1" />,
     Galeri: <Instagram className="w-5 h-5 mb-1" />,
     Testimoni: <MessageSquare className="w-5 h-5 mb-1" />,
-    Kontak: <Phone className="w-5 h-5 mb-1" />
+    Kontak: <Phone className="w-5 h-5 mb-1" />,
   };
 
   return (
     <>
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+          isScrolled ? "bg-white shadow-md" : "bg-white/95 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Logo */}
+            {/* Hany satu lokasi untuk logo, terlihat di semua ukuran */}
             <Link to="/" className="flex items-center space-x-3">
               <img
                 src="/banner2.svg"
                 alt="Griya Rias Ratih"
                 className="h-12 sm:h-20 w-auto object-contain"
                 onError={(e) => {
-                  e.target.src = '/banner.webp';
+                  e.target.src = "/banner.webp";
                 }}
               />
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation (hanya tampil di layar besar) */}
             <div className="hidden lg:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   className={`text-sm font-medium transition-colors hover:text-amber-600 ${
-                    location.pathname === link.path ? 'text-amber-600' : 'text-gray-700'
+                    location.pathname === link.path
+                      ? "text-amber-600"
+                      : "text-gray-700"
                   }`}
                 >
                   {link.name}
@@ -73,9 +83,9 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right Side */}
+            {/* Right Side - Mengandung user icons/masuk */}
             <div className="flex items-center space-x-4">
-              {/* Desktop - UserHeader or Masuk */}
+              {/* Desktop - UserHeader atau Masuk (hanya tampil di layar besar) */}
               <div className="hidden lg:flex items-center">
                 {currentUser ? (
                   <UserHeader />
@@ -88,42 +98,26 @@ const Navbar = () => {
                   </Link>
                 )}
               </div>
-              {/* Mobile - Masuk only if logged out */}
-              {!currentUser && (
-                <div className="lg:hidden">
+
+              {/* Mobile - UserHeader atau Masuk (hanya tampil di layar kecil) */}
+              {/* Pastikan hanya ada UserHeader dan bukan logo tambahan */}
+              <div className="lg:hidden flex items-center">
+                {currentUser ? (
+                  <UserHeader />
+                ) : (
                   <Link
                     to="/login"
                     className="text-sm font-medium text-amber-600 hover:underline"
                   >
                     Masuk
                   </Link>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-inner lg:hidden z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-around text-xs text-gray-700">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`flex flex-col items-center justify-center py-2 transition-colors hover:text-amber-600 ${
-                  location.pathname === link.path ? 'text-amber-600' : ''
-                }`}
-                aria-label={link.name}
-              >
-                {iconMap[link.name]}
-                <span>{link.name}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
+      {/* Hapus mobile bottom nav bar jika Anda tidak menginginkannya */}
     </>
   );
 };

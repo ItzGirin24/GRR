@@ -26,6 +26,8 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const [successMessage, setSuccessMessage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -54,6 +56,7 @@ const Contact = () => {
         description: "Terima kasih! Tim kami akan segera menghubungi Anda.",
       });
 
+      setSuccessMessage("Pesan berhasil terkirim. Terima kasih!");
       setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (error) {
       toast({
@@ -69,6 +72,7 @@ const Contact = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (successMessage) setSuccessMessage('');
   };
 
   return (
@@ -156,6 +160,11 @@ const Contact = () => {
                   <Send className="ml-2 h-5 w-5" />
                 </Button>
               </form>
+              {successMessage && (
+                <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-md text-center font-semibold">
+                  {successMessage}
+                </div>
+              )}
             </div>
 
             {/* Contact Info */}
@@ -188,7 +197,7 @@ const Contact = () => {
                     <Instagram className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">Instagram</p>
-                      <a
+                      <a  
                         href={`https://instagram.com/${socialMedia.instagram}`}
                         target="_blank"
                         rel="noopener noreferrer"

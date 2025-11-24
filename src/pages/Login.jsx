@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { googleProvider } from '../firebase';
@@ -12,10 +13,16 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || '/';
+
   const handleGoogleSignIn = async () => {
     setError('');
     try {
       await signInWithPopup(auth, googleProvider);
+      navigate(from, { replace: true });
     } catch (error) {
       setError(error.message);
     }
@@ -25,6 +32,7 @@ const Login = () => {
     setError('');
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      navigate(from, { replace: true });
     } catch (error) {
       setError(error.message);
     }
