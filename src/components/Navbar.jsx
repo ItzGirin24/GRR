@@ -39,7 +39,7 @@ const Navbar = () => {
             <img
               src="/banner2.svg"
               alt="Griya Rias Ratih"
-              className="h-14 w-auto object-contain"
+              className="h-20 w-auto object-contain"
               onError={(e) => {
                 e.target.src = '/banner.webp';
               }}
