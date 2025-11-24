@@ -159,15 +159,7 @@ export const testimonials = [
     image: "https://lh3.googleusercontent.com/a/ACg8ocIEyIVY1e3OZEa70sYgnWNpUT3juOXi4sTDtEu24MPX2E-dmg=w49-h49-p-rp-mo-br100",
     event: "General"
   },
-  {
-    id: 3,
-    name: "NUR BUDHI",
-    rating: 5,
-    date: "7 tahun lalu",
-    comment: "Lumayan bagus",
-    image: "https://lh3.googleusercontent.com/a/ACg8ocIui1tx0yzZKbVDi3zo5j3p86EMOjNsHrSakO9hFnZ0GFWzeg=w49-h49-p-rp-mo-ba3-br100",
-    event: "General"
-  },
+ 
   {
     id: 4,
     name: "FATCHU ROHMAN",
@@ -186,15 +178,7 @@ export const testimonials = [
     image: "https://lh3.googleusercontent.com/a-/ALV-UjVT4LrmLxSl7YdB6LEJjaNBGQINSqmBqtWm2KuoXrebSULmXNIAqg=w49-h49-p-rp-mo-ba4-br100",
     event: "General"
   },
-  {
-    id: 6,
-    name: "sepi purwo",
-    rating: 5,
-    date: "setahun lalu",
-    comment: "",
-    image: "https://lh3.googleusercontent.com/a/ACg8ocKAgrnzAP86duIn_Dz_YSkLNLLkAeuv09GIodCo53SmZzy-WA=w49-h49-p-rp-mo-br100",
-    event: "General"
-  },
+
   {
     id: 7,
     name: "BIMO Tips N Trik",
@@ -213,15 +197,7 @@ export const testimonials = [
     image: "https://lh3.googleusercontent.com/a-/ALV-UjVbeT2fvE8tl9RW-h1l_aqyudIycUMXMvuLYjLrerTx1yTy6SMX=w49-h49-p-rp-mo-ba2-br100",
     event: "General"
   },
-  {
-    id: 9,
-    name: "Dmaz Dhesea",
-    rating: 5,
-    date: "6 tahun lalu",
-    comment: "",
-    image: "https://lh3.googleusercontent.com/a-/ALV-UjVLbONAadC9s1EBfW1nU2uFjjNZooj4yLA9fhIPl3pRDT6Zt9GsBA=w49-h49-p-rp-mo-ba3-br100",
-    event: "General"
-  }
+ 
 ];
 
 export const gallery = [
