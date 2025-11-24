@@ -8,6 +8,13 @@ import { Label } from '../components/ui/label';
 import { locations, socialMedia } from '../data/mockData';
 import { MapPin, Phone, Mail, Instagram, Clock, Send } from 'lucide-react';
 import { toast } from '../hooks/use-toast';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+import emailjs from '@emailjs/browser';
+
+const SERVICE_ID = 'service_u7vjjbs';
+const TEMPLATE_ID = 'template_7wil9kk';
+const USER_ID = 'rwtBxYPpf3Yw1-dPz';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,14 +24,47 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    toast({
-      title: "Pesan Terkirim!",
-      description: "Terima kasih! Tim kami akan segera menghubungi Anda.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setLoading(true);
+
+    const templateParams = {
+      NAMA_LENGKAP_KLIEN: formData.name,
+      EMAIL_KLIEN: formData.email,
+      NO_TELPON_KLIEN: formData.phone,
+      PESAN_KLIEN: formData.message
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
+
+      // Save to Firestore
+      await addDoc(collection(db, 'contacts'), {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        timestamp: serverTimestamp()
+      });
+
+      toast({
+        title: "Pesan Terkirim!",
+        description: "Terima kasih! Tim kami akan segera menghubungi Anda.",
+      });
+
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Gagal Mengirim Pesan",
+        description: "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti.",
+        variant: "destructive"
+      });
+      console.error('Error sending message:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -111,7 +151,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-amber-600 hover:bg-amber-700 text-white">
+                <Button type="submit" size="lg" className="w-full bg-amber-600 hover:bg-amber-700 text-white" disabled={loading}>
                   Kirim Pesan
                   <Send className="ml-2 h-5 w-5" />
                 </Button>

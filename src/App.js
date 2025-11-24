@@ -24,7 +24,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white pb-16 lg:pb-0">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

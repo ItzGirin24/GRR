@@ -35,7 +35,7 @@ const Login = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">Login</CardTitle>
-          <p className="text-gray-600">Login to access the admin panel</p>
+          <p className="text-gray-600">Login to access / buy </p>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
