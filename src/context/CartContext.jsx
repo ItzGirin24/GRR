@@ -27,7 +27,9 @@ export const CartProvider = ({ children }) => {
     const unsubscribe = onSnapshot(cartQuery, (snapshot) => {
       const items = snapshot.docs.map(doc => ({
         id: doc.id,
-        ...doc.data()
+        ...doc.data(),
+        price: parseInt(doc.data().price) || 0,
+        quantity: parseInt(doc.data().quantity) || 1,
       }));
       setCartItems(items);
     });

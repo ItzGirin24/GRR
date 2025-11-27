@@ -134,6 +134,7 @@ const tabData = [
       {
         id: '16j-2',
         name: '16 Juta',
+        price: 16000000,
         features: [
           'Dekorasi max 8x3 m',
           'Setting meja kursi akad',
@@ -439,7 +440,7 @@ const Packages = () => {
         {tabData.map(({ id, label, packages }) => {
           if (activeTab !== id || !packages) return null;
 
-          return packages.map(({ id: pkgId, name, features, image, images }) => (
+          return packages.map(({ id: pkgId, name, price, features, image, images }) => (
             <div
               key={pkgId}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -466,7 +467,7 @@ const Packages = () => {
                   ))}
                 </ul>
                 <button
-                  onClick={() => handleAddToCart({ id: pkgId, name, features, image, images }, label)}
+                  onClick={() => handleAddToCart({ id: pkgId, name, price, features, image, images }, label)}
                   className="mt-4 px-4 py-2 bg-amber-500 text-white rounded hover:bg-amber-600 transition"
                 >
                   Masukkan Keranjang

@@ -83,7 +83,7 @@ const Cart = () => {
   const recommendedProducts = packages.map(pkg => ({
     id: pkg.id,
     name: pkg.name,
-    price: pkg.price,
+    price: parseInt(pkg.price) || 0,
     image: pkg.image
   }));
 
