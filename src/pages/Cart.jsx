@@ -1,29 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { Trash2, ShoppingBag, ArrowRight, CheckCircle, Shield, Calendar, MessageCircle } from 'lucide-react';
 import { toast } from '../hooks/use-toast';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, removeItem, addItem } = useCart();
   const { currentUser } = useAuth();
+  const [meetingTime, setMeetingTime] = useState('');
 
   if (!currentUser) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
-        <p>Silakan masuk terlebih dahulu untuk melihat keranjang belanja Anda.</p>
+      <div className="min-h-screen bg-gray-50">
+        {/* Navigation */}
+        <nav className="bg-white shadow-sm border-b">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center space-x-8">
+                <Link to="/" className="flex items-center space-x-2">
+                  <img src="/logo.webp" alt="TelugeAgro Logo" className="h-8 w-8" />
+                  <span className="font-bold text-xl text-green-600">TelugeAgro</span>
+                </Link>
+                <div className="hidden md:flex space-x-6">
+                  <Link to="/" className="text-gray-700 hover:text-green-600">Beranda</Link>
+                  <Link to="/packages" className="text-gray-700 hover:text-green-600">Toko</Link>
+                  <Link to="/about" className="text-gray-700 hover:text-green-600">Tentang</Link>
+                  <Link to="/contact" className="text-gray-700 hover:text-green-600">Kontak</Link>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-green-600">
+                  <ShoppingBag className="h-5 w-5" />
+                  <span>Keranjang Belanja</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
+          <p>Silakan masuk terlebih dahulu untuk melihat keranjang belanja Anda.</p>
+        </div>
       </div>
     );
   }
-
-  const groupedItems = cartItems.reduce((groups, item) => {
-    const category = item.category || 'Others';
-    if (!groups[category]) groups[category] = [];
-    groups[category].push(item);
-    return groups;
-  }, {});
 
   const handleQuantityChange = async (item, newQuantity) => {
     if (newQuantity < 1) {
@@ -39,55 +64,275 @@ const Cart = () => {
     }
   };
 
+  const total = cartItems.reduce((sum, item) => sum + ((item.price || 0) * item.quantity), 0);
+
+  const handleCheckout = () => {
+    if (!meetingTime) {
+      toast({ title: "Error", description: "Silakan pilih waktu pertemuan terlebih dahulu", variant: "destructive" });
+      return;
+    }
+
+    const products = cartItems.map(item => `${item.name} (${item.quantity})`).join(', ');
+    const message = `*Pesanan Baru dari TelugeAgro*\n\nNama: ${currentUser.displayName || currentUser.email}\nEmail: ${currentUser.email}\n\nProduk yang dipesan:\n${products}\n\nTotal: Rp ${total.toLocaleString('id-ID')}\nWaktu Pertemuan: ${meetingTime}\n\nMohon konfirmasi apakah tim GRR dapat melayani pada waktu tersebut.`;
+
+    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`; // Replace with actual WhatsApp number
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const recommendedProducts = [
+    { id: 1, name: 'Pisang Mas Kirana', price: 12000, image: '/Aset/asset (1).jpg' },
+    { id: 2, name: 'Pisang Kapok Kuning', price: 11000, image: '/Aset/asset (2).jpg' },
+    { id: 3, name: 'Pisang Susu', price: 12000, image: '/Aset/asset (3).jpg' },
+    { id: 4, name: 'Pisang Ambon Kuning', price: 15000, image: '/Aset/asset (4).jpg' },
+  ];
+
   if (cartItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
-        <p>Keranjang Anda kosong.</p>
+      <div className="min-h-screen bg-gray-50">
+        {/* Navigation */}
+        <nav className="bg-white shadow-sm border-b">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16">
+              <div className="flex items-center space-x-8">
+                <Link to="/" className="flex items-center space-x-2">
+                  <img src="/logo.webp" alt="TelugeAgro Logo" className="h-8 w-8" />
+                  <span className="font-bold text-xl text-green-600">TelugeAgro</span>
+                </Link>
+                <div className="hidden md:flex space-x-6">
+                  <Link to="/" className="text-gray-700 hover:text-green-600">Beranda</Link>
+                  <Link to="/packages" className="text-gray-700 hover:text-green-600">Toko</Link>
+                  <Link to="/about" className="text-gray-700 hover:text-green-600">Tentang</Link>
+                  <Link to="/contact" className="text-gray-700 hover:text-green-600">Kontak</Link>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-green-600">
+                  <ShoppingBag className="h-5 w-5" />
+                  <span>Keranjang Belanja</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
+          <p>Keranjang Anda kosong.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
-      <div className="space-y-8">
-        {Object.entries(groupedItems).map(([category, items]) => (
-          <div key={category}>
-            <h2 className="text-xl font-semibold mb-4">{category}</h2>
-            <div className="space-y-4">
-              {items.map(item => (
-                <Card key={item.id}>
-                  <CardHeader>
-                    <CardTitle>{item.name || item.productName}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex flex-col space-y-2">
-                      {item.description && (
-                        <p className="text-sm text-gray-600">{item.description}</p>
-                      )}
-                      {item.price !== undefined && (
-                        <p className="text-sm font-semibold">Harga: Rp {item.price.toLocaleString('id-ID')}</p>
-                      )}
-                      <div className="flex items-center space-x-4">
-                        <input
-                          type="number"
-                          min={1}
-                          value={item.quantity}
-                          onChange={(e) => handleQuantityChange(item, parseInt(e.target.value))}
-                          className="w-16 border rounded px-2 py-1"
-                        />
-                        <Button variant="destructive" onClick={() => removeItem(item.id)}>
-                          Hapus
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-8">
+              <Link to="/" className="flex items-center space-x-2">
+                <img src="/logo.webp" alt="TelugeAgro Logo" className="h-8 w-8" />
+                <span className="font-bold text-xl text-green-600">TelugeAgro</span>
+              </Link>
+              <div className="hidden md:flex space-x-6">
+                <Link to="/" className="text-gray-700 hover:text-green-600">Beranda</Link>
+                <Link to="/packages" className="text-gray-700 hover:text-green-600">Toko</Link>
+                <Link to="/about" className="text-gray-700 hover:text-green-600">Tentang</Link>
+                <Link to="/contact" className="text-gray-700 hover:text-green-600">Kontak</Link>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-green-600">
+                <ShoppingBag className="h-5 w-5" />
+                <span>Keranjang Belanja ({cartItems.length})</span>
+              </Link>
             </div>
           </div>
-        ))}
+        </div>
+      </nav>
+
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Cart Title */}
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Keranjang Belanja</h1>
+          <p className="text-gray-600">Review produk pilihan Anda sebelum melakukan pemesanan</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Cart Items */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <ShoppingBag className="h-5 w-5" />
+                  <span>Produk dalam Keranjang</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {cartItems.map(item => (
+                  <div key={item.id} className="flex items-center space-x-4 p-4 border rounded-lg">
+                    <img
+                      src={item.image || '/Aset/asset (1).jpg'}
+                      alt={item.name}
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                    <div className="flex-1">
+                      <h3 className="font-semibold">{item.name}</h3>
+                      <p className="text-green-600 font-bold">Rp {(item.price || 0).toLocaleString('id-ID')}</p>
+                    </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => removeItem(item.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            {/* Continue Shopping */}
+            <div className="flex justify-between items-center">
+              <Link to="/packages">
+                <Button variant="outline" className="flex items-center space-x-2">
+                  <ArrowRight className="h-4 w-4 rotate-180" />
+                  <span>Lanjut Belanja</span>
+                </Button>
+              </Link>
+            </div>
+
+            {/* Tutorial Steps */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Tutorial Cara Pemesanan</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {[
+                    { step: 1, title: 'Pilih Produk', desc: 'Kunjungi halaman toko dan pilih produk pisang yang Anda inginkan.' },
+                    { step: 2, title: 'Tambahkan ke Keranjang', desc: 'Klik tombol "Tambah ke Keranjang" dan atur jumlah yang diinginkan.' },
+                    { step: 3, title: 'Periksa Keranjang', desc: 'Review produk dalam keranjang, sesuaikan jumlah jika perlu.' },
+                    { step: 4, title: 'Pilih Waktu Pertemuan', desc: 'Pilih waktu yang sesuai untuk konsultasi langsung dengan tim GRR.' },
+                    { step: 5, title: 'Kirim Pesanan via WhatsApp', desc: 'Konfirmasi pesanan dan dapatkan konfirmasi dari tim GRR apakah dapat melayani.' }
+                  ].map((tutorial) => (
+                    <div key={tutorial.step} className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <span className="text-green-600 font-bold">{tutorial.step}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold">{tutorial.title}</h4>
+                        <p className="text-sm text-gray-600">{tutorial.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                  <p className="text-sm text-blue-800">
+                    <strong>Butuh bantuan?</strong> Hubungi kami via WhatsApp untuk panduan lebih detail.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Recommended Products */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Rekomendasi Produk</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {recommendedProducts.map(product => (
+                    <div key={product.id} className="text-center">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-24 object-cover rounded-lg mb-2"
+                      />
+                      <h4 className="font-semibold text-sm">{product.name}</h4>
+                      <p className="text-green-600 font-bold text-sm">Rp {product.price.toLocaleString('id-ID')}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Meeting Time Selection */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Calendar className="h-5 w-5" />
+                  <span>Pilih Waktu Pertemuan</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Select value={meetingTime} onValueChange={setMeetingTime}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Pilih waktu pertemuan" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Pagi (08:00 - 12:00)">Pagi (08:00 - 12:00)</SelectItem>
+                    <SelectItem value="Siang (12:00 - 15:00)">Siang (12:00 - 15:00)</SelectItem>
+                    <SelectItem value="Sore (15:00 - 18:00)">Sore (15:00 - 18:00)</SelectItem>
+                    <SelectItem value="Malam (18:00 - 21:00)">Malam (18:00 - 21:00)</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-sm text-gray-600">
+                  Pilih waktu yang sesuai untuk konsultasi langsung dengan tim GRR
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Order Summary */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Ringkasan Pesanan</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex justify-between font-bold text-lg">
+                  <span>Total:</span>
+                  <span>Rp {total.toLocaleString('id-ID')}</span>
+                </div>
+                <Button onClick={handleCheckout} className="w-full bg-green-600 hover:bg-green-700 flex items-center space-x-2">
+                  <MessageCircle className="h-4 w-4" />
+                  <span>Kirim Pesanan via WhatsApp</span>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Features */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
+                <Shield className="h-5 w-5 text-green-600" />
+                <span className="font-semibold">Pembayaran Aman</span>
+              </div>
+              <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <span className="font-semibold">Garansi Kualitas</span>
+              </div>
+            </div>
+
+
+
+            {/* Purchase History */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Riwayat Pembelian</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-500 text-sm">Gagal memuat riwayat</p>
+                <Button variant="outline" className="w-full mt-4">
+                  Lihat Semua Pesanan →
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

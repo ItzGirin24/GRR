@@ -2,9 +2,36 @@ import React from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import { Badge } from '../components/ui/badge';
 import { testimonials } from '../data/mockData';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Heart, Users } from 'lucide-react';
+import { AnimatedSection, AnimatedStagger, StaggerItem } from '../components/AnimatedSection';
+import { AnimatedCounter } from '../components/AnimatedCounter';
+import { motion } from 'framer-motion';
 
 const Testimonials = () => {
+  const stats = [
+    {
+      icon: Star,
+      value: 5.0,
+      label: "Rating Google Maps",
+      suffix: "",
+      color: "text-amber-600"
+    },
+    {
+      icon: Heart,
+      value: 500,
+      label: "Pasangan Bahagia",
+      suffix: "+",
+      color: "text-pink-600"
+    },
+    {
+      icon: Users,
+      value: 100,
+      label: "Kepuasan Pelanggan",
+      suffix: "%",
+      color: "text-green-600"
+    }
+  ];
+
   return (
     <div className="min-h-screen pt-24 pb-20">
       {/* Header */}

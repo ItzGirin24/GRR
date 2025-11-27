@@ -31,7 +31,7 @@ const Navbar = () => {
     { name: "Beranda", path: "/" },
     { name: "Layanan", path: "/services" },
     { name: "Paket", path: "/packages" },
-    { name: "Testimoni", path: "/testimonials" },
+    { name: "Testimoni", path: "/testimoni" },
     { name: "Kontak", path: "/contact" },
   ];
 

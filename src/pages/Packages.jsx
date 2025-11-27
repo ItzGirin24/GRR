@@ -8,6 +8,7 @@ const tabData = [
       {
         id: '6j-1',
         name: '6 Juta',
+        price: 6000000,
         features: [
           'Dekorasi 6 x 3 m',
           'Set akad',
@@ -26,6 +27,7 @@ const tabData = [
       {
         id: '8j-1',
         name: '8 Juta',
+        price: 8000000,
         features: [
           'Dekorasi 6 x 3 m',
           'Set akad',
@@ -76,6 +78,7 @@ const tabData = [
       {
         id: '12j-2',
         name: '12 Juta',
+        price: 12000000,
         features: [
           'Dekorasi 6 x 3 m',
           'Setting meja kursi akad',
