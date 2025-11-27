@@ -94,7 +94,7 @@ const tabData = [
           'Tenda tratak siap H-3',
           'MC & acara adat',
           '1 Blower',
-          'FREE Soft lens, Nail fake, Hand Bouquet',
+          'FREE Soft lens, Nail Fake, Hand Bouquet',
         ],
         image: '/Aset/MediumWeddin (1)12juta.jpg' 
       },
@@ -122,7 +122,7 @@ const tabData = [
           'MC & acara adat',
           '1 Blower',
           'GRIYA RIAS RATIH',
-          'FREE Soft lens, Nail fake, Hand Bouquet',
+          'FREE Soft lens, Nail Fake, Hand Bouquet',
         ],
         image: '/Aset/MediumWeddin (2)14juta.jpg' 
       },
@@ -152,7 +152,7 @@ const tabData = [
           'MC & acara adat',
           'Cucuk lampah',
           '2 Blower',
-          'FREE Soft lens, Nail fake, Hand Bouquet',
+          'FREE Soft lens, Nail Fake, Hand Bouquet',
         ],
         image: '/Aset/MediumWeddin (3)16juta.jpg' 
 
@@ -261,7 +261,6 @@ const tabData = [
           '2x Retouch',
           '2 Pasang makeup & busana ortu',
           '4 Makeup & busana penjaga tamu',
-          'Photo unlimited shoot (file di flashdisk)',
           'Album foto magnetik',
           'Vclip',
           'Tenda tratak siap h-3',
@@ -287,13 +286,13 @@ const tabData = [
   },
   {
     id: 'paket-dekorasi',
-    label: 'PAKET DEKORASI',
+    label: 'Paket Dekorasi',
     packages: [
       {
         id: '3_5j-4',
         name: '3,5 - 5 Juta',
         features: [
-          'GRIYA RIAS RATIH',
+    
           'DEKORASI 6 M LIGHTING',
           'SET AKAD',
           'MINI GARDEN',
@@ -304,7 +303,7 @@ const tabData = [
           'HAND BOUQUET',
           'UMBUL - UMBUL',
         ],
-        image: '/Aset/Dekorasi-3_5-5juta.jpg' 
+        image: '/Aset/Dekorasi1.jpg' 
       },
       {
         id: '7j-4',
@@ -324,7 +323,7 @@ const tabData = [
           'HAND BOUQUET',
           'UMBUL - UMBUL',
         ],
-        image: '/Aset/Dekorasi-7juta.jpg' 
+        image: '/Aset/Dekorasi2.jpg' 
       },
       {
         id: '9j-4',
@@ -334,7 +333,7 @@ const tabData = [
           'SET AKAD AKRILIK',
           'MINI GARDEN',
         ],
-        image: '/Aset/Dekorasi-9juta.jpg' 
+        image: '/Aset/Dekorasi3.jpg' 
       },
       {
         id: '14j-4',
@@ -351,9 +350,10 @@ const tabData = [
           'HAND BOUQUET',
           'LIGHTING MOVING',
           'AC PELAMINAN',
+          'DRY ICE / EFEK ASAP',
           'UMBUL - UMBUL',
         ],
-        image: '/Aset/Dekorasi-14juta.jpg' 
+        image: '/Aset/Dekorasi5.jpg' 
       },
       {
         id: 'ff-4',
@@ -377,19 +377,34 @@ const tabData = [
           'DRY ICE / EFEK ASAP',
           'UMBUL - UMBUL',
         ],
-        image: '/Aset/Dekorasi-full-fresh.jpg' 
+        image: '/Aset/Dekorasi4.jpg' 
       },
     ]
   },
 ];
 
+import { useCart } from '../context/CartContext';
+
 const Packages = () => {
-  const [activeTab, setActiveTab] = React.useState(tabData[0].id);
+  const [activeTab, setActiveTab] = useState(tabData[0].id);
+
+  const { addItem } = useCart();
+
+  const handleAddToCart = (pkg, categoryLabel) => {
+    addItem({
+      productId: pkg.id,
+      name: pkg.name,
+      category: categoryLabel,
+      features: pkg.features,
+      image: pkg.image || (pkg.images ? pkg.images[0] : ''),
+      quantity: 1,
+    });
+  };
 
   return (
     <section className="pt-24 container mx-auto px-6 py-10 bg-white rounded-lg shadow-lg">
       <h1 className="text-4xl font-extrabold text-gray-900 mb-12 text-center">
-        Paket & Harga 
+        Paket & Harga
       </h1>
       <div className="mb-6 flex flex-wrap justify-center border-b border-gray-300">
         {tabData.map(({ id, label }) => (
@@ -407,7 +422,7 @@ const Packages = () => {
         ))}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {tabData.map(({ id, packages }) => {
+        {tabData.map(({ id, label, packages }) => {
           if (activeTab !== id || !packages) return null;
 
           return packages.map(({ id: pkgId, name, features, image, images }) => (
@@ -436,6 +451,12 @@ const Packages = () => {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
+                <button
+                  onClick={() => handleAddToCart({ id: pkgId, name, features, image, images }, label)}
+                  className="mt-4 px-4 py-2 bg-amber-500 text-white rounded hover:bg-amber-600 transition"
+                >
+                  Masukkan Keranjang
+                </button>
               </div>
             </div>
           ));
@@ -446,3 +467,4 @@ const Packages = () => {
 };
 
 export default Packages;
+

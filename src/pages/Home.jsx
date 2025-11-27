@@ -398,60 +398,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <Badge className="bg-amber-100 text-amber-700 border-amber-200 mb-4">
-              Portfolio
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Galeri Karya Kami
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Lihat hasil karya terbaik kami untuk inspirasi acara Anda
-            </p>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {featuredGallery.map((item) => (
-              <div
-                key={item.id}
-                className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <Badge className="bg-amber-500 text-white border-0 mb-2">
-                      {item.category}
-                    </Badge>
-                    <h3 className="text-white font-semibold">{item.title}</h3>
-                    <p className="text-white/80 text-sm">{item.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-amber-600 text-amber-600 hover:bg-amber-50"
-              asChild
-            >
-              <Link to="/gallery">
-                Lihat Galeri Lengkap
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-white">

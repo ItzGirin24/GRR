@@ -50,7 +50,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-amber-500">Menu</h3>
             <ul className="space-y-2">
-              {['Beranda', 'Layanan', 'Paket', 'Galeri', 'Testimoni', 'Kontak'].map((item, index) => (
+              {['Beranda', 'Layanan', 'Paket', 'Testimoni', 'Kontak'].map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item === 'Beranda' ? '/' : `/${item.toLowerCase()}`}

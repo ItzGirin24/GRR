@@ -31,7 +31,6 @@ const Navbar = () => {
     { name: "Beranda", path: "/" },
     { name: "Layanan", path: "/services" },
     { name: "Paket", path: "/packages" },
-    { name: "Galeri", path: "/gallery" },
     { name: "Testimoni", path: "/testimonials" },
     { name: "Kontak", path: "/contact" },
   ];
@@ -40,7 +39,6 @@ const Navbar = () => {
     Beranda: <HomeIcon className="w-5 h-5 mb-1" />,
     Layanan: <Phone className="w-5 h-5 mb-1" />,
     Paket: <ChevronDown className="w-5 h-5 mb-1" />,
-    Galeri: <Instagram className="w-5 h-5 mb-1" />,
     Testimoni: <MessageSquare className="w-5 h-5 mb-1" />,
     Kontak: <Phone className="w-5 h-5 mb-1" />,
   };

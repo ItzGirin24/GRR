@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useCount } from '../context/CountContext';
+import { useCart } from '../context/CartContext';
 import { Button } from './ui/button';
 import ProfileDropdown from './ProfileDropdown';
 import { ShoppingCart, MessageSquare } from 'lucide-react';
@@ -9,7 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const UserHeader = () => {
   const { currentUser } = useAuth();
-  const { cartCount, messageCount } = useCount();
+  const { cartItems } = useCart();
+  const { messageCount } = useCount();
 
   const navigate = useNavigate();
 
@@ -42,9 +44,9 @@ const UserHeader = () => {
           className="relative"
         >
           <ShoppingCart className="w-6 h-6" />
-          {cartCount > 0 && (
+          {cartItems.length > 0 && (
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              {cartCount}
+              {cartItems.length}
             </span>
           )}
         </Button>
