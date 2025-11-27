@@ -118,7 +118,16 @@ const Cart = () => {
 
         <div className="container mx-auto px-4 py-8">
           <h1 className="text-2xl font-bold mb-6">Keranjang Belanja</h1>
-          <p>Keranjang Anda kosong.</p>
+          <div className="text-center py-12">
+            <div className="text-6xl mb-4">🛒</div>
+            <h2 className="text-2xl font-semibold text-gray-700 mb-2">Keranjang Masih Kosong</h2>
+            <p className="text-gray-500 mb-6">Yuk mulai pesan dulu!</p>
+            <Link to="/packages">
+              <Button className="bg-green-600 hover:bg-green-700">
+                Mulai Belanja
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     );
