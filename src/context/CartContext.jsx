@@ -42,10 +42,17 @@ export const CartProvider = ({ children }) => {
       // Optionally update quantity or ignore duplicates
       return;
     }
-    await addDoc(collection(db, 'carts'), {
+    const cartItem = {
       userId: currentUser.uid,
-      ...item,
-    });
+      productId: item.productId,
+      name: item.name,
+      category: item.category,
+      features: item.features,
+      image: item.image,
+      price: item.price || 0,
+      quantity: item.quantity || 1,
+    };
+    await addDoc(collection(db, 'carts'), cartItem);
   };
 
   const removeItem = async (cartItemId) => {

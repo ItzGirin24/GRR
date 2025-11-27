@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Trash2, ShoppingBag, ArrowRight, CheckCircle, Shield, Calendar, MessageCircle } from 'lucide-react';
 import { toast } from '../hooks/use-toast';
 import { Link } from 'react-router-dom';
+import { packages } from '../data/mockData';
 
 const Cart = () => {
   const { cartItems, removeItem, addItem } = useCart();
@@ -79,12 +80,12 @@ const Cart = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const recommendedProducts = [
-    { id: 1, name: 'Pisang Mas Kirana', price: 12000, image: '/Aset/asset (1).jpg' },
-    { id: 2, name: 'Pisang Kapok Kuning', price: 11000, image: '/Aset/asset (2).jpg' },
-    { id: 3, name: 'Pisang Susu', price: 12000, image: '/Aset/asset (3).jpg' },
-    { id: 4, name: 'Pisang Ambon Kuning', price: 15000, image: '/Aset/asset (4).jpg' },
-  ];
+  const recommendedProducts = packages.map(pkg => ({
+    id: pkg.id,
+    name: pkg.name,
+    price: pkg.price,
+    image: pkg.image
+  }));
 
   if (cartItems.length === 0) {
     return (
@@ -212,9 +213,9 @@ const Cart = () => {
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { step: 1, title: 'Pilih Produk', desc: 'Kunjungi halaman toko dan pilih produk pisang yang Anda inginkan.' },
+                    { step: 1, title: 'Pilih Paket', desc: 'Kunjungi halaman toko dan pilih paket pernikahan yang Anda inginkan.' },
                     { step: 2, title: 'Tambahkan ke Keranjang', desc: 'Klik tombol "Tambah ke Keranjang" dan atur jumlah yang diinginkan.' },
-                    { step: 3, title: 'Periksa Keranjang', desc: 'Review produk dalam keranjang, sesuaikan jumlah jika perlu.' },
+                    { step: 3, title: 'Periksa Keranjang', desc: 'Review paket dalam keranjang, sesuaikan jumlah jika perlu.' },
                     { step: 4, title: 'Pilih Waktu Pertemuan', desc: 'Pilih waktu yang sesuai untuk konsultasi langsung dengan tim GRR.' },
                     { step: 5, title: 'Kirim Pesanan via WhatsApp', desc: 'Konfirmasi pesanan dan dapatkan konfirmasi dari tim GRR apakah dapat melayani.' }
                   ].map((tutorial) => (

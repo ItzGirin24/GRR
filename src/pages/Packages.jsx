@@ -49,6 +49,7 @@ const tabData = [
       {
         id: '10j-1',
         name: '10 Juta',
+        price: 10000000,
         features: [
           'Set akad',
           'Bunga artificial mix fresh',
@@ -104,6 +105,7 @@ const tabData = [
       {
         id: '14j-2',
         name: '14 Juta',
+        price: 14000000,
         features: [
           'Dekorasi 8 x 3 m',
           'Setting meja kursi akad',
@@ -163,6 +165,7 @@ const tabData = [
       {
         id: '20j-2',
         name: '20 Juta',
+        price: 20000000,
         features: [
           'Dekorasi max 8x3 m',
           'Setting meja kursi akad',
@@ -203,6 +206,7 @@ const tabData = [
       {
         id: '25j-3',
         name: '25 Juta',
+        price: 25000000,
         features: [
           'FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)',
           'Dekorasi max 8 x 3 m',
@@ -246,6 +250,7 @@ const tabData = [
       {
         id: '30j-3',
         name: '30 Juta',
+        price: 30000000,
         features: [
           'FREE (SOFTLENS, NAIL FAKE, HAND BOUQUET)',
           'Dekorasi max 8 x 3 m',
@@ -294,6 +299,7 @@ const tabData = [
       {
         id: '3_5j-4',
         name: '3,5 - 5 Juta',
+        price: 3500000,
         features: [
     
           'DEKORASI 6 M LIGHTING',
@@ -311,6 +317,7 @@ const tabData = [
       {
         id: '7j-4',
         name: '7 Juta',
+        price: 7000000,
         features: [
           'SET AKAD',
           'DEKORASI 8 M LIGHTING',
@@ -331,6 +338,7 @@ const tabData = [
       {
         id: '9j-4',
         name: '9 Juta',
+        price: 9000000,
         features: [
           'DEKORASI 8 M LIGHTING',
           'SET AKAD AKRILIK',
@@ -341,6 +349,7 @@ const tabData = [
       {
         id: '14j-4',
         name: '14 Juta',
+        price: 14000000,
         features: [
           'WELCOME GATE MIRROR',
           '1 KOTAK SUMBANG',
@@ -361,6 +370,7 @@ const tabData = [
       {
         id: 'ff-4',
         name: 'Full Fresh Flowers',
+        price: 20000000,
         features: [
           'DEKORASI 8 M LIGHTING',
           'FULL FRESH FLOWERS',
@@ -400,6 +410,7 @@ const Packages = () => {
       category: categoryLabel,
       features: pkg.features,
       image: pkg.image || (pkg.images ? pkg.images[0] : ''),
+      price: pkg.price,
       quantity: 1,
     });
   };
